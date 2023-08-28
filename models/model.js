@@ -37,7 +37,7 @@ const getJewels = async (limit, page, order_by) => {
 				metal: row.metal,
 				precio: row.precio,
 				stock: row.stock,
-				href: `http://localhost:3000/joyas/${row.id}`,
+				href: `http://localhost:5500/joyas/${row.id}`,
 			};
 		});
 
@@ -62,7 +62,7 @@ const getJewel = async (id) => {
 
 	const result = rows.map((row) => {
 		return {
-			BackToJewels: `http://localhost:3000/joyas`,
+			BackToJewels: `http://localhost:5500/joyas`,
 			id: row.id,
 			name: row.nombre,
 			category: row.categoria,
@@ -90,13 +90,13 @@ const getJewelsMetadata = async (limit, page) => {
 			next:
 				total_pages <= page
 					? null
-					: `http://localhost:3000/joyas?limit=${limit}&page=${
+					: `http://localhost:5500/joyas?limit=${limit}&page=${
 							parseInt(page) + 1
 					  }`,
 			previous:
 				page <= 1
 					? null
-					: `http://localhost:3000/joyas?limit=${limit}&page=${
+					: `http://localhost:5500/joyas?limit=${limit}&page=${
 							parseInt(page) - 1
 					  }`,
 		};
